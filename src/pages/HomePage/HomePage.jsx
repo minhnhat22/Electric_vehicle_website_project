@@ -1,20 +1,41 @@
-import React from 'react'
-import ElectricmotobikeComponent from '../../components/ElectricmotorbikeComponent/ElectricmotorbikeComponent'
-import ElectricbicycleComponent from '../../components/ElectricbicycleComponent/ElectricbicycleComponent'
-import GenuinebatteryComponent from '../../components/GenuinebatteryComponent/GenuinebatteryComponent'
-import GenuinesparepartsComponent from '../../components/GenuinesparepartsComponent/Genuinespareparts'
-import './Style.scss'
+import React from 'react';
+import ProductListComponent from '../../components/ProductListComponent/ProductListComponent'; // Sử dụng component tái sử dụng
+import './Style.scss';
 
 const HomePage = () => {
-  
   return (
-    <div className='home'>
-      <ElectricmotobikeComponent />
-      <ElectricbicycleComponent />
-      <GenuinebatteryComponent />
-      <GenuinesparepartsComponent />
-    </div>
-  )
-}
+    <div style={{ marginBottom: '200px' }}>
+      <div className="product-row">
+        {/* Hiển thị Xe Máy Điện */}
+        <ProductListComponent 
+          parentTypeId={1} 
+          title="XE MÁY ĐIỆN" 
+          productsPerPage={4} 
+        />
 
-export default HomePage
+        {/* Hiển thị Xe Đạp Điện */}
+        <ProductListComponent 
+          parentTypeId={2} 
+          title="XE ĐẠP ĐIỆN" 
+          productsPerPage={4} 
+        />
+
+        {/* Hiển thị Xe Đạp Điện */}
+        <ProductListComponent 
+          parentTypeId={3} 
+          title="ÁC QUY" 
+          productsPerPage={4} 
+        />
+
+        {/* Hiển thị Xe Đạp Điện */}
+        <ProductListComponent 
+        parentTypeId={4} 
+        title="PHỤ TÙNG" 
+        productsPerPage={4} 
+        />
+      </div>
+    </div>
+  );
+};
+
+export default HomePage;
