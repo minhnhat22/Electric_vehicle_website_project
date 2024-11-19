@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import axios from 'axios';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import { Typography } from 'antd';
+import { Typography, Spin } from 'antd';
 import ImageComponent from '../../components/ImageComponent/ImageComponent';
 import './Style.scss';
 
@@ -11,16 +11,19 @@ const { Title, Paragraph } = Typography;
 const Storecriteriapage = () => {
   const [criteria, setCriteria] = useState([]);
   const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(true);
 
-  const fetchCriteria = async () => {
+  const fetchCriteria = useCallback(async () => {
     try {
       const response = await axios.get('http://localhost:3001/api/criteria');
       setCriteria(response.data);
     } catch (error) {
       setError('Lỗi khi tải dữ liệu tiêu chí');
       console.error(error);
+    } finally {
+      setLoading(false);
     }
-  };
+  }, []);
 
   useEffect(() => {
     AOS.init({
@@ -29,7 +32,15 @@ const Storecriteriapage = () => {
     });
 
     fetchCriteria();
-  }, []);
+  }, [fetchCriteria]);
+
+  if (loading) {
+    return (
+      <div className="loading-spinner">
+        <Spin size="large" />
+      </div>
+    );
+  }
 
   return (
     <div className="news-page">
