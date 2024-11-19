@@ -59,6 +59,7 @@ const ProductListComponent = ({
           // Tạo link chi tiết của sản phẩm sử dụng product_id
           const productDetailLink = `/productdetails/${product.product_id}`;
 
+
           return (
             <Space key={product.product_id} className="card-i" direction="vertical">
               <Space className='card-c1'>
@@ -101,9 +102,9 @@ const ProductListComponent = ({
                   </Space>
                 </Space>
                 <Space className="card-button">
-                  <Link to={productDetailLink}>
-                    <ButtonComponent className="card-button-i" type="primary" buttonText="Xem chi tiết sản phẩm" />
-                  </Link>
+                <Link to={productDetailLink}>
+                  <ButtonComponent className="card-button-i" type="primary" buttonText="Xem chi tiết sản phẩm" />
+                </Link>
                 </Space>
               </Space>
             </Space>

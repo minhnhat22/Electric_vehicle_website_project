@@ -15,7 +15,7 @@ export const routes = [
   },
  
   {
-    path: '/productdetails/:id', // Thêm :id vào đường dẫn để nhận ID của sản phẩm
+    path: '/productdetails/:productId',
     page: ProductdetailsPage,
     isShowHeader: true
   },
