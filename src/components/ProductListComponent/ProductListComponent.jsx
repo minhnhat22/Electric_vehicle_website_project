@@ -73,7 +73,7 @@ const ProductListComponent = ({
               <Space direction="vertical" className="card-c2">
                 <Space className="card-ii">
                   <h2>{product.product_name}</h2>
-                </Space>
+</Space>
                 <Space className="card-ii-i">
                   <Space className="item1">
                     <h3>Giá gốc:</h3>
